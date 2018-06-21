@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Transactions from './Transactions'
-import { Table } from 'react-bootstrap'
 
 class Block extends Component {
   constructor(props) {
@@ -14,57 +13,57 @@ class Block extends Component {
   }
 
   render() {
-    const { data, filter, number } = this.props
+    const { data, filter, number, tableClass } = this.props
 
     return(
       <div>
         <h3>Block</h3>
 
-        <Table striped bordered condensed hover>
+        <table className={ tableClass }>
           <tbody>
-            {this.value(filter.number) && 
+            {this.value(filter.number) &&
               <tr>
                 <td>Block Number</td>
                 <td>{ number }</td>
               </tr>
             }
-            {this.value(filter.hash) && 
+            {this.value(filter.hash) &&
               <tr>
                 <td>Block Hash</td>
                 <td>{ data.hash }</td>
               </tr>
             }
-            {this.value(filter.time) && 
+            {this.value(filter.time) &&
               <tr>
                 <td>Received Time</td>
                 <td>{ data.time }</td>
               </tr>
             }
-            {this.value(filter.confirmations) && 
+            {this.value(filter.confirmations) &&
               <tr>
                 <td>Confirmations</td>
                 <td>{ data.confirmations } Confirmations</td>
               </tr>
             }
-            {this.value(filter.gasLimit) && 
+            {this.value(filter.gasLimit) &&
               <tr>
                 <td>Gas Limit</td>
                 <td>{ data.gasLimit } m/s</td>
               </tr>
             }
-            {this.value(filter.gasUsed) && 
+            {this.value(filter.gasUsed) &&
               <tr>
                 <td>Gas Used</td>
                 <td>{ data.gasUsed } m/s</td>
               </tr>
             }
           </tbody>
-        </Table>
+        </table>
 
         <br/>
 
         {this.value(filter.transactions) &&
-          <Transactions filter={filter.transactions} data={data.transactions} />
+          <Transactions filter={filter.transactions} data={data.transactions} tableClass={tableClass} />
         }
       </div>
     )
