@@ -38,7 +38,8 @@ class BlockDisplay extends Component {
       blockDataFilter: {
         confirmations: false,
         transactions: {
-          hash: false
+          input: false,
+          value: false
         }
       }
     }
@@ -49,7 +50,7 @@ class BlockDisplay extends Component {
       <Grid>
         <Row className="show-grid">
           <Col md={12}>
-            <Block filter={this.state.blockDataFilter} number={this.props.params.number} data={this.state.blockData} />
+            <Block filter={this.state.blockDataFilter} number={this.props.params.number} data={this.state.blockData} tableClass={'table table-striped table-bordered table-condensed table-hover'} />
           </Col>
         </Row>
       </Grid>

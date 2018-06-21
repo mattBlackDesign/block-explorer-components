@@ -8,13 +8,13 @@ class Transactions extends Component {
   }
 
   render() {
-    const { data, filter } = this.props
+    const { data, filter, tableClass } = this.props
 
     return(
       <div>
         <h3>Transactions</h3>
         {data.map((item, i) => {
-          return <Transaction filter={filter} data={item} i={i} />
+          return <Transaction filter={filter} data={item} tableClass={tableClass} i={i} />
         })}
       </div>
     )
