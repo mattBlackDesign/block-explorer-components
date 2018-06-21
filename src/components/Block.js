@@ -63,7 +63,11 @@ class Block extends Component {
         <br/>
 
         {this.value(filter.transactions) &&
-          <Transactions filter={filter.transactions} data={data.transactions} tableClass={tableClass} />
+          <Transactions
+            filter={filter.transactions}
+            data={data.transactions}
+            tableClass={tableClass}
+          />
         }
       </div>
     )
